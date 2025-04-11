@@ -188,8 +188,8 @@ time_of_job = (time_2-time_1)/60
 
 results_to_be_saved = np.concatenate((np.array([job_index]), np.array([time_of_job]), Q_learning_list,
                                     V_function_list.reshape(N*(T+1),)), axis=0)
-pd.DataFrame(results_to_be_saved).to_csv('0112/result_'+str(job_index).zfill(2)+'.csv')
+pd.DataFrame(results_to_be_saved).to_csv('/result_'+str(job_index).zfill(2)+'.csv')
 
 print('Job number {} is finished. Time: {:.3f} minutes'.format(job_index, time_of_job))
-print(f'Results saved to: 0112/result_{str(job_index).zfill(2)}.csv')
+print(f'Results saved to: /result_{str(job_index).zfill(2)}.csv')
 
