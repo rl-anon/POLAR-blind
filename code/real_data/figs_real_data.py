@@ -23,7 +23,7 @@ time_00 = time.time()
 
 # This dataset should be accessed through MIMIC-III database. We cannot share the data due to privacy issues. 
 # The data description is in data/README.md
-df = pd.read_csv('')
+df = pd.read_csv('sepsis_processed_state_action.csv')
 file1 = open('state_features.txt', 'r')
 
 Lines = file1.readlines()

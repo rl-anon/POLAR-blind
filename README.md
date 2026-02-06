@@ -32,40 +32,60 @@ These scripts will initiate the full pipeline for simulating environments, estim
 This repository provides code to reproduce both the simulation studies and the real-data analyses presented in the manuscript.  
 The experiments are organized into two independent components:
 
-- Simulation studies  
-- Real-data analysis  
+- **Simulation studies**
+- **Real-data analyses**
 
-Each component can be run separately.
+Each component can be run independently after installing the required dependencies:
 
+```bash
+pip install -r requirements.txt
+```
 
 ## Simulation Experiments
 
+The simulation data are fully self-contained and are generated directly by the provided code.
+
 To reproduce the simulation results:
 
-1. Run the simulation script to generate action-value estimates:
+1. Run the simulation pipeline:
 
-```
-bash code/simulation/simulation.py
-```
+    ```
+    bash code/simulation/submit_simulation.sh
+    ```
+This script performs environment simulation, transition model estimation, and POLAR policy training.
 
-2. After the simulation outputs are generated, reproduce the figures by running the notebook:
+2. After the simulation outputs are generated, reproduce the figures using:
 
-```
-code/simulation/figs_simu.ipynb
-```
-Follow the instructions provided in each notebook cell to generate the figures reported in the manuscript.
+    ```
+    code/simulation/figs_simu.ipynb
+    ```
+
+Follow the instructions in each notebook cell to generate the figures reported in the manuscript.
 
 ## Real-Data Experiments
 
+The real-data analysis is based on the publicly available MIMIC-III critical care database.
+Access to MIMIC-III requires credentialed approval via PhysioNet:
+
+👉 https://physionet.org/content/mimiciii/1.4/
+
+After obtaining access, the processed dataset used in this study
+(sepsis_processed_state_action.csv) can be reproduced using publicly available preprocessing pipelines:
+
+https://github.com/matthieukomorowski/AI_Clinician
+
+https://github.com/microsoft/mimic_sepsis
+
+Additional feature-description files (CSV and TXT) are included in this repository to document the extracted variables.
+
 To reproduce the real-data results:
 
-1. Run the real-data analysis script:
-```
-bash code/real_data/submit_real_data.sh
-```
+1. Run the real-data analysis pipeline:
 
-2. Generate the figures using python code/real_data/figs_real_data.py
+    ```
+    bash code/real_data/submit_real_data.sh
+    ```
+This script performs dataset processing, model training, and policy evaluation.
 
-
-
+2. Generate the figures using: real_data/figs_real_data.py
 

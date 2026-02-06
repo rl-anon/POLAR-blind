@@ -37,9 +37,8 @@ print('seed={}, c={}'.format(seed, c))
 time_00 = time.time()
 
 # create state and action 
-# This data should be accessed through MIMIC-III database 
 
-df = pd.read_csv('')
+df = pd.read_csv('sepsis_processed_state_action.csv')
 file1 = open('data/state_features.txt', 'r')
 Lines = file1.readlines()
 state_names = [line.strip() for line in Lines]
