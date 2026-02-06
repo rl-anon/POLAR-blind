@@ -1,0 +1,14 @@
+# POLAR (Python) requirements
+# Python: 3.9.21
+
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.12.0
+scikit-learn==1.6.0
+joblib==1.4.2
+matplotlib==3.9.4
+tqdm==4.67.1
+GPy==1.13.2
+paramz==0.9.6
+psutil==6.1.0
+
