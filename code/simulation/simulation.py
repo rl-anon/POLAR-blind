@@ -3,17 +3,22 @@
 
 
 import sys
+import os
+
+_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if _REPO_ROOT not in sys.path:
+    sys.path.insert(0, _REPO_ROOT)
+if "code" in sys.modules and not hasattr(sys.modules["code"], "__path__"):
+    del sys.modules["code"]
 
 import numpy as np
 import time
 import pandas as pd
 from tqdm import tqdm  
-from utils import *
 import pandas as pd
-import os
 from scipy.interpolate import BSpline
 from scipy.linalg import lstsq
-from POLAR import *
+from code.POLAR import *
 
 def standard_Q_learning(D, k_max, dim_h, L, dim_s_history, knots, k_degree):
     # offline data D: (s1, a1, s2, a2, s3, a3, s4)

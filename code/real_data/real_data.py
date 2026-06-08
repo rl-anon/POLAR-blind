@@ -6,6 +6,12 @@ import numpy as np
 import pandas as pd
 import os
 
+_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if _REPO_ROOT not in sys.path:
+    sys.path.insert(0, _REPO_ROOT)
+if "code" in sys.modules and not hasattr(sys.modules["code"], "__path__"):
+    del sys.modules["code"]
+
 from scipy.interpolate import BSpline
 from scipy.linalg import lstsq
 from joblib import Parallel, delayed
@@ -579,4 +585,3 @@ for t in trange(T, desc="Policy Iteration"):
     )
     OPE_list[t+1] = OPE(theta_1,theta_2,theta_3)
     
-
